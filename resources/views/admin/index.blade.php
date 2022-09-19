@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container">
+        @if (session("deleted"))
+            <div class="warn delete-warn">
+                Post deleted.
+            </div>
+        @endif
         <div class="row">
             <div class="col-12">
                 <table class="table table-dark table-striped">
@@ -19,9 +24,13 @@
                                 <td><a href="{{ route("admin.show", $post->id) }}">{{ $post->title }}</a></td>
                                 <td>{{ $post->user }}</td>
                                 <td>{{ $post->date }}</td>
-                                <td>
+                                <td class="d-flex">
                                     <a href="{{ route("admin.edit", $post->id) }}" class="btn btn-sm btn-success">Edit</a>
-                                    <a href="{{ route("admin.destroy", $post->id) }}" class="btn btn-sm text-danger">Delete</a>
+                                    <form action="{{ route("admin.destroy", $post->id) }}" method="POST">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button type="submit" class="btn btn-sm text-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty

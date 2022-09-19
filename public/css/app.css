@@ -10987,3 +10987,15 @@ a.text-dark:focus {
   font-size: 2rem;
 }
 
+div.warn {
+  text-align: center;
+  font-size: 1.8rem;
+  padding-block: 1rem;
+  text-transform: uppercase;
+  margin-block: 0.75rem;
+}
+
+div.warn.delete-warn {
+  background-color: #f76060;
+}
+

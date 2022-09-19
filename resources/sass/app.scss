@@ -7,7 +7,7 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-
+// SHOW POST CARD
 .post-card {
     border: 2px solid black;
 
@@ -26,5 +26,19 @@
 
     p {
         font-size: 2rem;
+    }
+}
+
+// INDEX VIEW
+
+div.warn {
+    text-align: center;
+    font-size: 1.8rem;
+    padding-block: 1rem;
+    text-transform: uppercase;
+    margin-block: .75rem;
+
+    &.delete-warn {
+        background-color: #f76060;
     }
 }
