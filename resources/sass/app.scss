@@ -41,4 +41,12 @@ div.warn {
     &.delete-warn {
         background-color: #f76060;
     }
+
+    &.create-warn {
+        background-color: lightgreen;
+    }
+
+    &.update-warn {
+        background-color: rgb(102, 186, 243);
+    }
 }

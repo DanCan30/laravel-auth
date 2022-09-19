@@ -54,7 +54,7 @@ class PostsController extends Controller
         $post->date = date("Y/m/d H:i:s");
         $post->save();
 
-        return redirect()->route("admin.index");
+        return redirect()->route("admin.show", $post->id)->with("created", $post->id);
         
     }
 
@@ -91,7 +91,15 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $postUpdatedData = $request->all();
+        $post = Post::findOrFail($id);
+        $post->title = $postUpdatedData["title"];
+        $post->content = $postUpdatedData["content"];
+        $post->post_image_url = $postUpdatedData["post_image_url"];
+
+        $post->save();
+
+        return redirect()->route("admin.show", $post->id)->with("updated", $post->id);
     }
 
     /**
@@ -106,6 +114,6 @@ class PostsController extends Controller
 
         $post->delete();
 
-        return redirect()->route("admin.index")->with("deleted", $post->title);
+        return redirect()->route("admin.index")->with("deleted", $post->id);
     }
 }

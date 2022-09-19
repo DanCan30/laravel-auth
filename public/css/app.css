@@ -10999,3 +10999,11 @@ div.warn.delete-warn {
   background-color: #f76060;
 }
 
+div.warn.create-warn {
+  background-color: lightgreen;
+}
+
+div.warn.update-warn {
+  background-color: rgb(102, 186, 243);
+}
+
