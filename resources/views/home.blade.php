@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    {{ __('You are logged in! Click on your name to see the posts.') }}
                 </div>
             </div>
         </div>

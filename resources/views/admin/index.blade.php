@@ -16,9 +16,13 @@
                         @forelse ($posts as $post)
                             <tr>
                                 <td>{{ $post->id }}</td>
+                                <td><a href="{{ route("admin.show", $post->id) }}">{{ $post->title }}</a></td>
                                 <td>{{ $post->user }}</td>
-                                <td>{{ $post->title }}</td>
                                 <td>{{ $post->date }}</td>
+                                <td>
+                                    <a href="{{ route("admin.edit", $post->id) }}" class="btn btn-sm btn-success">Edit</a>
+                                    <a href="{{ route("admin.destroy", $post->id) }}" class="btn btn-sm text-danger">Delete</a>
+                                </td>
                             </tr>
                         @empty
                             <h2>There are no posts.</h2>

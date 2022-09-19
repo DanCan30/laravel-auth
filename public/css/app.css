@@ -10966,3 +10966,24 @@ a.text-dark:focus {
   }
 }
 
+.post-card {
+  border: 2px solid black;
+}
+
+.post-card h2 {
+  font-size: 4rem;
+}
+
+.post-card h5 {
+  font-size: 1rem;
+  color: grey;
+}
+
+.post-card img {
+  margin-block: 2rem;
+}
+
+.post-card p {
+  font-size: 2rem;
+}
+

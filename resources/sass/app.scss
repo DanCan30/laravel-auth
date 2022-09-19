@@ -6,3 +6,25 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+
+.post-card {
+    border: 2px solid black;
+
+    h2 {
+        font-size: 4rem;
+    }
+
+    h5 {
+        font-size: 1rem;
+        color: grey;
+    }
+
+    img {
+        margin-block: 2rem;
+    }
+
+    p {
+        font-size: 2rem;
+    }
+}
