@@ -26,7 +26,7 @@
                                 <td>{{ $post->date }}</td>
                                 <td class="d-flex">
                                     <a href="{{ route("admin.edit", $post->id) }}" class="btn btn-sm btn-success">Edit</a>
-                                    <form action="{{ route("admin.destroy", $post->id) }}" method="POST">
+                                    <form action="{{ route("admin.destroy", $post->id) }}" method="POST" class="delete-element-button">
                                         @csrf
                                         @method("DELETE")
                                         <button type="submit" class="btn btn-sm text-danger">Delete</button>
@@ -41,4 +41,28 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section("scripts")
+    <script defer>
+
+
+const deleteElement = document.querySelectorAll(".delete-element-button");
+
+deleteElement.forEach(element=> {
+    
+    element.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const response = window.confirm("Your choice can't be reverted. Are you sure you want to delete this record?");
+        if (response) {
+            element.submit();
+        } 
+            
+    })
+}
+
+)
+    </script>
 @endsection
