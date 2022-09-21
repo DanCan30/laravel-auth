@@ -11,6 +11,12 @@ use Illuminate\Support\Facades\Auth;
 class PostsController extends Controller
 {
 
+    private $validationRules = [
+        "title" => "required|min:3|max:150",
+        "content" => "required|min:5|max:255",
+        "post_image_url" => "active_url",
+    ];
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -45,7 +51,8 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $postData = $request->all();
+        $postData = $request->validate($this->validationRules);
+
         $post = new Post();
         $post->user = Auth::user()->name;
         $post->title = $postData["title"];
@@ -91,11 +98,13 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $postUpdatedData = $request->all();
+
+        $postData = $request->validate($this->validationRules);
+
         $post = Post::findOrFail($id);
-        $post->title = $postUpdatedData["title"];
-        $post->content = $postUpdatedData["content"];
-        $post->post_image_url = $postUpdatedData["post_image_url"];
+        $post->title = $postData["title"];
+        $post->content = $postData["content"];
+        $post->post_image_url = $postData["post_image_url"];
 
         $post->save();
 

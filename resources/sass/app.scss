@@ -50,3 +50,12 @@ div.warn {
         background-color: rgb(102, 186, 243);
     }
 }
+
+// VALIDATION ERROR
+
+.displayed-error {
+    font-style: italic;
+    color: red;
+    font-size: 1.25rem;
+    list-style: none;
+}

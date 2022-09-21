@@ -11007,3 +11007,10 @@ div.warn.update-warn {
   background-color: rgb(102, 186, 243);
 }
 
+.displayed-error {
+  font-style: italic;
+  color: red;
+  font-size: 1.25rem;
+  list-style: none;
+}
+
