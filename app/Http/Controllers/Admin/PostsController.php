@@ -98,11 +98,13 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $postUpdatedData = $request->all();
+
+        $postData = $request->validate($this->validationRules);
+
         $post = Post::findOrFail($id);
-        $post->title = $postUpdatedData["title"];
-        $post->content = $postUpdatedData["content"];
-        $post->post_image_url = $postUpdatedData["post_image_url"];
+        $post->title = $postData["title"];
+        $post->content = $postData["content"];
+        $post->post_image_url = $postData["post_image_url"];
 
         $post->save();
 
